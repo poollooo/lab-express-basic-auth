@@ -1,25 +1,12 @@
 const router = require('express').Router()
-const User = require('../models/User.model')
-/**
- * All the routes are prefixed with /users
- */
-
-router.get('/', async (req, res, next) => {
-  try {
-    const allUsers = await User.find()
-    return res.status(200).json(allUsers)
-  } catch (error) {
-    next(error)
-  }
+const usersRouter = require('./users.routes')
+// const messageRouter = require('./message.routes')
+/* GET home page */
+router.get('/', (req, res, next) => {
+  res.json({ message: 'Everything is fine so far!' })
 })
-router.post('/', async (req, res, next) => {
-  const { name } = req.body
 
-  if (!name) {
-    return res.status(400).json({ message: `You should send a name!` })
-  }
-})
-// router.patch('/')
-// router.delete('/')
+router.use('/users', usersRouter)
+// router.use('/message', messageRouter)
 
 module.exports = router
