@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const usersRouter = require('./users.routes')
-const messageRouter = require('./message.routes')
-const authRoute = require('./auth.routes')
+const authRouter = require('./auth.routes')
+const mainRouter = require('./main.routes')
+const privateRouter = require('./private.routes')
 /* GET home page */
 
 // router.use('/', consoleLogger)
@@ -18,7 +19,9 @@ function consoleLogger(req, res, next) {
 
 
 router.use('/users', usersRouter)
-router.use('/message', messageRouter)
-router.use('/auth', authRoute)
+router.use('/auth', authRouter)
+router.use('/main', mainRouter)
+router.use('/private', privateRouter)
+
 
 module.exports = router

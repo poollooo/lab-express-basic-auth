@@ -7,9 +7,7 @@ const salt = 10
 
 router.get('/signup', (req, res, next) => {
     console.log(__dirname)
-    // const file = `${__dirname.replace('routes', 'public')}/signup.html`
     res.send('ok')
-    res.sendFile(file)
 })
 
 
