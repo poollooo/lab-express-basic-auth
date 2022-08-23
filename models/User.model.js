@@ -5,14 +5,17 @@ const userSchema = new Schema(
   {
     username: {
       type: Schema.Types.String,
-      unique: true
+      unique: true,
     },
     email: {
       type: Schema.Types.String,
+      required: true,
     },
     phoneNumber: Schema.Types.Number,
+    password: { type: Schema.Types.String, required: true }
   },
   {
+    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 )
