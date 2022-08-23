@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Message = require('../models/Message.model.js')
 const mongoose = require('mongoose')
-// const { isAuthenticated } = require('../middleware/middlewares.js')
+const { isAuthenticated, isAdmin } = require('../middleware/middlewares.js')
 
 /**
  * All routes are prefixed with /message
@@ -12,8 +12,8 @@ const mongoose = require('mongoose')
 
 router.post(
     '/receiver/:receiverId',
-    // isAuthenticated,
-    // isAdmin,
+    isAuthenticated,
+    isAdmin,
     async (req, res, next) => {
         console.log('In the protected route ', req.user)
         try {

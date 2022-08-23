@@ -11,8 +11,13 @@ const userSchema = new Schema(
       type: Schema.Types.String,
       required: true,
     },
+    password: { type: Schema.Types.String, required: true },
     phoneNumber: Schema.Types.Number,
-    password: { type: Schema.Types.String, required: true }
+    role: {
+      type: Schema.Types.String,
+      enum: ['admin', 'user'],
+      default: 'admin',
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
